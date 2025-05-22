@@ -1,0 +1,76 @@
+<% layout('layouts/boilerplate') %>
+
+  <body>
+    <style>
+      
+    </style>
+
+    <div id="filters">
+      <div class="filter">
+        <div><i class="fa-solid fa-fire"></i></div>
+        <p>Trending</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-bed"></i></div>
+        <p>Rooms</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-mountain-city"></i></div>
+        <p>Iconic cities</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-mountain"></i></div>
+        <p>Mountains</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-snowflake"></i></div>
+        <p>Snow</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-campground"></i></div>
+        <p>Camping</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-tractor"></i></div>
+        <p>Farms</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-person-swimming"></i></div>
+        <p>Pools</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-chess-rook"></i></div>
+        <p>Castles</p>
+      </div>
+      
+    </div>
+
+    <div class="listing-container">
+      <% for (let listing of listings) { %>
+        <div class="card1 shadow-sm border-0">
+          <img src="<%= listing.image.url %>" class="card-img-top" alt="<%= listing.title %>">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-primary">
+              <%= listing.title %>
+            </h5>
+            <p class="card-text text-muted">
+              <%= listing.description %>
+            </p>
+            <div class="mt-auto">
+              <h6 class="text-danger mb-1">Price: <%= listing.price %> <i id="taxinfo">18%GST</i>
+              </h6>
+              <p class="mb-0">
+                <%= listing.location %>, <%= listing.country %>
+              </p>
+              <a href="/listings/<%= listing._id %>" class="btn btn-primary mt-2 list">View Details</a>
+              <% if(currUser && listing.owner._id.equals(currUser._id)) {%>
+                <a href="/listings/<%= listing._id %>/edit" class="btn btn-primary mt-2 list">Edit</a>
+                <%}%>
+            </div>
+          </div>
+        </div>
+        <% } %>
+    </div>
+
+
+  </body>

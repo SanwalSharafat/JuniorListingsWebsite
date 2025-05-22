@@ -1,0 +1,46 @@
+ body {
+   background: #111;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   margin: 0;
+ }
+
+ h1 {
+   font-size: 4rem;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   background: linear-gradient(90deg, #00c6ff, #0072ff);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   text-shadow: 2px 2px 8px rgba(0, 114, 255, 0.5);
+   animation: fadeSlideZoom 3s ease-in-out infinite alternate;
+   transition: transform 0.5s ease;
+ }
+
+ h1:hover {
+   transform: rotate(-2deg) scale(1.1);
+ }
+
+ @keyframes fadeSlideZoom {
+   0% {
+     opacity: 0;
+     transform: translateY(-50px) scale(0.8);
+   }
+
+   50% {
+     opacity: 1;
+     transform: translateY(0) scale(1);
+   }
+
+   100% {
+     opacity: 0.7;
+     transform: translateY(10px) scale(1.05);
+   }
+ }
+
+ * {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+ }
